@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <title>Blog Postlar</title>
     <style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        margin-top: 50px;
+        }
       .big-button {
         display: inline-block;
-        padding: 20px 40px;
-        font-size: 24px;
+        padding: 10px 20px;
+        font-size: 18px;
         font-weight: bold;
         text-decoration: none;
         color: #fff;
@@ -15,6 +22,7 @@
         border: 2px solid #007bff;
         border-radius: 10px;
         transition: background-color 0.3s, color 0.3s;
+        margin-left: 20px; /* Adjust spacing between h1 and button */
       }
       .big-button:hover {
         background-color: #0056b3;
@@ -23,12 +31,17 @@
     </style>
 </head>
 <body>
-    <h1>Blog Postlar</h1>
-    <ul>
 
-    </ul>
 
-    <a href="{% url 'blog_create' %}" class="big-button">Create Blog</a>
+    <div class="container">
+        <h1>Blog Postlar</h1>
+        <a href="{% url 'blog_create' %}" class="big-button">Create Blog</a>
+    </div>
+
+
+
+
+    <a class="container" target="_blank" href="https://www.bootdey.com/snippets/view/Event-Schedule-list">👉 Shu shablondan olinadi:</a>
 
 </body>
 </html>

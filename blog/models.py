@@ -25,7 +25,7 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=128, verbose_name='Maqola nomi')
     description = models.TextField(verbose_name='Maqola haqida')
     short_description = models.TextField(verbose_name='Maqola qisqacha haqida')
-    image = models.ImageField(upload_to='blog_images/', verbose_name='Maqola rasmi')
+    image = models.URLField()
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Yaratilgan sana')
     category = models.ForeignKey(BlogCategory, on_delete=models.CASCADE, verbose_name='Maqola kategoriyasi')
     slug = models.SlugField(max_length=200, unique=True, verbose_name='Slug', blank=True)
