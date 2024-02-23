@@ -1,34 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Blog Postlar</title>
-    <style>
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        margin-top: 50px;
-        }
-      .big-button {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 18px;
-        font-weight: bold;
-        text-decoration: none;
-        color: #fff;
-        background-color: #007bff;
-        border: 2px solid #007bff;
-        border-radius: 10px;
-        transition: background-color 0.3s, color 0.3s;
-        margin-left: 20px; /* Adjust spacing between h1 and button */
-      }
-      .big-button:hover {
-        background-color: #0056b3;
-        color: #fff;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}">
+
 </head>
 <body>
 
@@ -38,10 +16,41 @@
         <a href="{% url 'blog_create' %}" class="big-button">Create Blog</a>
     </div>
 
+{#    {% include 'category.html' %}#}
+
+
+<section class="home-blog bg-sand">
+
+    <div class="container">
+		<div class="row ">
+
+			<div class="col-md-6">
+            {% for blog in blogs %}
+				<div class="media blog-media">
+				  <a href="blog-post-left-sidebar.html"><img class="d-flex" src="{{ blog.image }}" alt="Generic placeholder image" style="width: 240px; height: 250px;"></a>
+				  <div class="circle">
+				  	<h5 class="day">{{ blog.created_at.day }}</h5>
+				  </div>
+				  <div class="media-body">
+				    <a href=""><h5 class="mt-0">{{ blog.title | truncatechars:50 }}</h5></a>
+				    {{ blog.short_description | truncatechars:100 }}
+				    <a href="" class="post-link">Read More</a>
+				    <ul>
+				    	<li>by: {{ blog.author }}</li>
+				    	<li class="text-right"><a href="">{{ blog.view_count }} views</a></li>
+				    </ul>
+				  </div>
+				</div>
+            {% endfor %}
+			</div>
+
+
+		</div>
+	</div>
+</section>
 
 
 
-    <a class="container" target="_blank" href="https://www.bootdey.com/snippets/view/Event-Schedule-list">👉 Shu shablondan olinadi:</a>
 
 </body>
 </html>
