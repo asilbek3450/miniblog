@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 50px;
+    }
+.big-button {
+display: inline-block;
+padding: 10px 20px;
+font-size: 18px;
+font-weight: bold;
+text-decoration: none;
+color: #fff;
+background-color: #007bff;
+border: 2px solid #007bff;
+border-radius: 10px;
+transition: background-color 0.3s, color 0.3s;
+margin-left: 20px; /* Adjust spacing between h1 and button */
+}
+.big-button:hover {
+background-color: #0056b3;
+color: #fff;
+}
+
