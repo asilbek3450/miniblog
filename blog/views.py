@@ -1,15 +1,16 @@
 from django.shortcuts import render, redirect
 
 from blog.forms import BlogForm
-from blog.models import BlogPost
+from blog.models import BlogPost, BlogCategory
 
 
 # Create your views here.
 def blog_list(request):
     bloglar = BlogPost.objects.all()
-
+    categories = BlogCategory.objects.all()
     context = {
-        'blogs': bloglar
+        'blogs': bloglar,
+        'categories': categories
     }
     # https://www.bootdey.com/snippets/view/Latest-News-section
     return render(request, 'blog_list.html', context=context)
