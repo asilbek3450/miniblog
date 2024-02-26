@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from blog.forms import BlogForm
 from blog.models import BlogPost, BlogCategory
@@ -34,6 +34,11 @@ def blog_create(request):
     return render(request, 'blog_create.html', context=context)
 
 
-def blog_detail():
-    pass
-# https://www.bootdey.com/snippets/view/project-details
+def blog_detail(request, slug):
+    blog = get_object_or_404(BlogPost, slug=slug)
+    category = BlogCategory.objects.filter(id=blog.category.id)
+    context = {
+        'blog': blog,
+        'category': category,
+    }
+    return render(request, 'blog_detail.html', context=context)

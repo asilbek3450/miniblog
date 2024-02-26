@@ -35,15 +35,15 @@
                     <div class="blog-grid">
                         <div class="blog-img">
                             <div class="date">{{ blog.created_at.day }} {{ blog.created_at.date|date:'F' }}</div>
-                            <a href="#">
+                            <a href="{% url 'blog_detail' slug=blog.slug %}">
                                 <img src="{{ blog.image }}" title="" alt="" style="width: 350px; height: 280px">
                             </a>
                         </div>
                         <div class="blog-info">
-                            <h5><a href="#">{{ blog.title | truncatechars:40 }}</a></h5>
+                            <h5><a href="{% url 'blog_detail' slug=blog.slug %}">{{ blog.title | truncatechars:40 }}</a></h5>
                             <p>{{ blog.short_description | truncatechars:90 }}</p>
                             <div class="btn-bar">
-                                <a href="#" class="px-btn-arrow">
+                                <a href="{% url 'blog_detail' slug=blog.slug %}" class="px-btn-arrow">
                                     <span>Read More</span>
                                     <i class="arrow"></i>
                                 </a>
